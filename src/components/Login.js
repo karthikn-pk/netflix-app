@@ -9,10 +9,13 @@ const Login = () => {
     const password=useRef(null);
 
     const handleButtonClick=()=>{
-      console.log(email);
-      console.log(password);
+      const emailValue = email.current.value; 
+    const passwordValue = password.current.value;
+      const message=checkValidateData(emailValue,passwordValue);
+      console.log(message);
 
     }
+    
 
     const toggleSignup=()=>{
         setIsSignInForm(!isSignInForm);
@@ -29,7 +32,7 @@ const Login = () => {
             <h1 className='text-white p-4 font-bold text-3xl'>{isSignInForm ? "Sign In" : "Sign Up"}</h1>
             {!isSignInForm && <input type='text' placeholder='Full Name' className='bg-black w-full border border-white border-solid  m-2 p-2'/>}
 
-            <input ref={email} type='email' placeholder='Email Address' className='bg-black w-full border border-white border-solid  m-2 p-2'/>
+            <input ref={email} type='text' placeholder='Email Address' className='bg-black w-full border border-white border-solid  m-2 p-2'/>
             <input ref={password} type='password' placeholder='Password' className='bg-black w-full border border-white border-solid m-2 p-2'/>
             <button className='w-full  rounded-lg p-4 m-4  bg-red-700 text-center font-bold' onClick={handleButtonClick}>{isSignInForm ? "Sign In" : "Sign Up"}</button>
             <p className='my-4 cursor-pointer' onClick={toggleSignup}>{isSignInForm ? "New to Netflix? Sign up now!" : "Already have an account? Sign In" }</p>
