@@ -19,3 +19,8 @@ install react-router-dom
 - NetflixGPT
     - Search Bar
     - Movie Suggestions
+
+
+# useRef Hook
+- useRef hook lets us reference a value thats not needed for rendering
+useRef(initalvalue)
