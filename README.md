@@ -24,3 +24,12 @@ install react-router-dom
 # useRef Hook
 - useRef hook lets us reference a value thats not needed for rendering
 useRef(initalvalue)
+
+firebase deployment steps
+npm install -g firebase-tools
+firebase login 
+firebase init
+    - configuration
+
+npm run build
+firebase deploy
