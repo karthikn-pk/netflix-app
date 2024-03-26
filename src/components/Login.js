@@ -4,12 +4,18 @@ import { checkValidateData } from '../utils/validate';
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
 import {auth} from "../utils/firebase"
 import { useNavigate } from 'react-router-dom';
+import { updateProfile } from "firebase/auth";
+import { useDispatch } from 'react-redux';
+import { addUser } from '../utils/userSlice';
+
+
 
 
 const Login = () => {
     const[isSignInForm,setIsSignInForm]=useState(true);
     const[errorMessage,setErrorMessage]=useState(null);
     const navigate=useNavigate();
+    const dispatch=useDispatch();
 
     const email=useRef("");
     const password=useRef("");
@@ -28,8 +34,19 @@ const Login = () => {
   .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
+    updateProfile(user, {
+      displayName: name.current.value, photoURL: "https://imageio.forbes.com/specials-images/imageserve/5ecebee7938ec500060ab34f/0x0.jpg?format=jpg&crop=2336,2337,x1064,y702,safe&height=416&width=416&fit=bounds"
+    }).then(() => {
+      // Profile updated!
+      const {uid,email,displayName,photoURL} = auth.currentUser;
+      dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
+      navigate("/browse");
+    }).catch((error) => {
+      // An error occurred
+      setErrorMessage(error.message);
+    });
     console.log(user);
-    
+   
   })
   .catch((error) => {
     const errorCode = error.code;

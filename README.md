@@ -7,6 +7,9 @@ install @reduxjs/toolkit
 install react-redux
 created redux store
 created user slice
+implemented sign in and sign out
+added user profile and signout btn
+
 
 
 
@@ -40,3 +43,17 @@ firebase init
 
 npm run build
 firebase deploy
+
+
+dummy user test
+karthi
+karthi@gmail.com 
+Sample@123
+viratkohli
+virat@gmail.com 
+Virat@123
+
+test001
+testapp@gmail.com
+Sample@123
+
