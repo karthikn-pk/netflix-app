@@ -6,3 +6,12 @@ export const NETFLIX_BG =
 
 export const USER_AVATAR =
   "https://imageio.forbes.com/specials-images/imageserve/5ecebee7938ec500060ab34f/0x0.jpg?format=jpg&crop=2336,2337,x1064,y702,safe&height=416&width=416&fit=bounds";
+
+export const API_OPTIONS = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNjg2YTFiMGEyMzhmZGE0N2Y3NGExZjZkYWEwMWQ2YiIsInN1YiI6IjY2MDNiZWVhZGJmMTQ0MDE0YTAyY2Y1NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.bDXZl3le41WR15kdZ3rKU3wq8oFyATLkRX5YLgJywso",
+  },
+};
